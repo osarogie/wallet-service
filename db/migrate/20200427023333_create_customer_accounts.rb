@@ -8,7 +8,7 @@ class CreateCustomerAccounts < ActiveRecord::Migration[6.0]
       t.money :balance
       t.integer :account_type
       t.boolean :is_open
-      t.money :lein
+      t.money :lien
       t.money :interest
 
       t.timestamps
