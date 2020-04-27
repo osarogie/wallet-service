@@ -7,4 +7,6 @@ class User < ApplicationRecord
   :trackable, :omniauthable
 
   validates :phone_number, phone: { allow_blank: true }
+
+  has_paper_trail
 end

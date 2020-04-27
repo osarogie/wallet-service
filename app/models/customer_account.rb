@@ -3,4 +3,6 @@ class CustomerAccount < ApplicationRecord
 
   belongs_to :user
   belongs_to :branch
+
+  has_paper_trail
 end

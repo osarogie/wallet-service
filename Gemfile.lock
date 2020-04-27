@@ -147,6 +147,7 @@ GEM
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
+    paper_trail-association_tracking (2.0.0)
     pg (1.2.3)
     phonelib (0.6.43)
     promise.rb (0.7.4)
@@ -274,6 +275,7 @@ DEPENDENCIES
   money-rails (~> 1.12)
   omniauth
   paper_trail
+  paper_trail-association_tracking
   pg (>= 0.18, < 2.0)
   phonelib
   pry-byebug
