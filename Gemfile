@@ -67,3 +67,4 @@ gem 'cancancan'
 
 gem 'omniauth'
 gem 'phonelib'
+gem 'graphiql-rails', group: :development

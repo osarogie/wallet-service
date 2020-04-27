@@ -4,5 +4,5 @@ class User < ApplicationRecord
   :confirmable, :lockable, :timeoutable,
   :trackable, :omniauthable
 
-  validates :phone_number, phone: true
+  validates :phone_number, phone: { allow_blank: true }
 end
