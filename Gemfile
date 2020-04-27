@@ -54,7 +54,9 @@ gem 'sorbet', :group => :development
 gem 'sorbet-runtime'
 
 gem 'graphql'
-gem 'graphql_playground_rails'
+gem 'graphql_playground_rails', group: :development
+gem 'graphiql-rails', group: :development
+gem 'graphql-batch'
 
 gem 'money-rails', '~>1.12'
 gem 'devise'
@@ -67,4 +69,3 @@ gem 'cancancan'
 
 gem 'omniauth'
 gem 'phonelib'
-gem 'graphiql-rails', group: :development
