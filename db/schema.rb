@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_020923) do
+ActiveRecord::Schema.define(version: 2020_04_27_034932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 2020_04_27_020923) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_branches_on_name"
+  end
+
+  create_table "customer_accounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "account_name"
+    t.string "account_number"
+    t.bigint "branch_id"
+    t.money "balance", scale: 2
+    t.integer "account_type"
+    t.boolean "is_open"
+    t.money "lien", scale: 2
+    t.money "interest", scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_name"], name: "index_customer_accounts_on_account_name"
+    t.index ["account_number"], name: "index_customer_accounts_on_account_number"
+    t.index ["branch_id"], name: "index_customer_accounts_on_branch_id"
+    t.index ["user_id"], name: "index_customer_accounts_on_user_id"
   end
 
   create_table "gl_accounts", force: :cascade do |t|
@@ -48,6 +66,20 @@ ActiveRecord::Schema.define(version: 2020_04_27_020923) do
     t.index ["name"], name: "index_gl_categories_on_name"
   end
 
+  create_table "gl_posts", force: :cascade do |t|
+    t.bigint "gl_account_to_credit_id", null: false
+    t.bigint "gl_account_to_debit_id", null: false
+    t.money "amount", scale: 2
+    t.text "narration"
+    t.bigint "user_id", null: false
+    t.datetime "posted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gl_account_to_credit_id"], name: "index_gl_posts_on_gl_account_to_credit_id"
+    t.index ["gl_account_to_debit_id"], name: "index_gl_posts_on_gl_account_to_debit_id"
+    t.index ["user_id"], name: "index_gl_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,15 +104,22 @@ ActiveRecord::Schema.define(version: 2020_04_27_020923) do
     t.string "full_name"
     t.string "phone_number"
     t.bigint "branch_id"
+    t.integer "level", default: 0
     t.index ["branch_id"], name: "index_users_on_branch_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["level"], name: "index_users_on_level"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "customer_accounts", "branches"
+  add_foreign_key "customer_accounts", "users"
   add_foreign_key "gl_accounts", "branches"
   add_foreign_key "gl_accounts", "gl_categories"
+  add_foreign_key "gl_posts", "gl_accounts", column: "gl_account_to_credit_id"
+  add_foreign_key "gl_posts", "gl_accounts", column: "gl_account_to_debit_id"
+  add_foreign_key "gl_posts", "users"
   add_foreign_key "users", "branches"
 end
