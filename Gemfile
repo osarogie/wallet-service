@@ -54,6 +54,8 @@ gem 'sorbet', :group => :development
 gem 'sorbet-runtime'
 
 gem 'graphql'
+gem 'graphql_playground_rails'
+
 gem 'money-rails', '~>1.12'
 gem 'devise'
 
@@ -62,3 +64,6 @@ gem 'activerecord-import'
 gem 'draper'
 gem 'figaro'
 gem 'cancancan'
+
+gem 'omniauth'
+gem 'phonelib'
