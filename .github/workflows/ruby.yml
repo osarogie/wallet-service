@@ -14,14 +14,6 @@ on:
     branches: [ master ]
 
 jobs:
-  linters:
-    name: Linters
-    runs-on: ubuntu-latest
-    steps:
-      - name: Rubocop Linter Action
-        uses: andrewmcodes/rubocop-linter-action@v3.1.0
-        with:
-          action_config_path: .rubocop.yml
   test:
     runs-on: ubuntu-latest
     steps:
@@ -35,5 +27,3 @@ jobs:
         ruby-version: 2.7.1
     - name: Install dependencies
       run: bundle install
-    - name: Run tests
-      run: bundle exec rake
