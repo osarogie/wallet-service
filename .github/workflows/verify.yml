@@ -2,9 +2,9 @@ name: Verify
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   linters:
@@ -64,10 +64,8 @@ jobs:
       postgres:
         image: postgres:11
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
+          POSTGRES_PASSWORD: password
+        ports: ['5432:5432']
 
     steps:
       - name: Checkout code
@@ -108,8 +106,6 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
         run: |
           bin/rails db:setup
 
