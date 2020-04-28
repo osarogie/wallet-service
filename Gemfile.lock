@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:softwarebrothers/rails_admin_softwarebrothers_theme.git
+  remote: https://github.com/softwarebrothers/rails_admin_softwarebrothers_theme.git
   revision: 390c3b8e86d6423b88e99b015dd3490b4c1707ce
   specs:
     rails_admin_softwarebrothers_theme (0.0.6)
