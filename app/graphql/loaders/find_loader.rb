@@ -3,7 +3,7 @@ module Loaders
     def initialize(model)
       @model = model
     end
-  
+
     def perform(ids)
       records = @model.where(id: ids.uniq)
       records.each { |record| fulfill(record.id, record) }

@@ -5,8 +5,8 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.super_admin?
       can :manage, :all
-    elsif
-      can :manage, Branch, :id => user.branch_id
+    elsif user.admin?
+      can :manage, Branch, id: user.branch_id
     else
       can :read, :all
     end
