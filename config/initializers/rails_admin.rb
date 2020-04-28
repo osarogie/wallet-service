@@ -42,4 +42,10 @@ RailsAdmin.config do |config|
   end
 
   config.parent_controller = 'AdminController'
+  
+  config.model 'User' do
+    object_label_method do
+      :display_name
+    end
+  end
 end

@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :phone_number, phone: { allow_blank: true }
 
   has_paper_trail
+
+  def display_name
+   self.full_nname || self.email
+  end
 end
