@@ -1,7 +1,5 @@
 RailsAdmin.config do |config|
-  class RailsAdmin::Config::Fields::Types::Money < RailsAdmin::Config::Fields::Base
-    RailsAdmin::Config::Fields::Types::register(self)
-  end
+  require 'money-rails/rails_admin'
 
   app_name = ENV.fetch("APP_NAME") { "Wallet Service" }
   config.main_app_name = [app_name, "BackOffice"]

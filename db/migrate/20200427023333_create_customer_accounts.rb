@@ -5,11 +5,11 @@ class CreateCustomerAccounts < ActiveRecord::Migration[6.0]
       t.string :account_name
       t.string :account_number
       t.references :branch, null: true, foreign_key: true
-      t.money :balance
+      t.monetize :balance
       t.integer :account_type
       t.boolean :is_open
-      t.money :lien
-      t.money :interest
+      t.monetize :lien
+      t.monetize :interest
 
       t.timestamps
     end

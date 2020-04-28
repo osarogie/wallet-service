@@ -6,7 +6,7 @@ class CreateGlAccounts < ActiveRecord::Migration[6.0]
       t.references :branch, null: false, foreign_key: true
       t.integer :code
       t.boolean :is_assigned
-      t.money :balance
+      t.monetize :balance
       t.boolean :is_till_account
 
       t.timestamps

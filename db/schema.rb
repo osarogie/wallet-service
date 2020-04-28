@@ -28,11 +28,14 @@ ActiveRecord::Schema.define(version: 2020_04_27_192713) do
     t.string "account_name"
     t.string "account_number"
     t.bigint "branch_id"
-    t.money "balance", scale: 2
+    t.integer "balance_cents", default: 0, null: false
+    t.string "balance_currency", default: "NGN", null: false
     t.integer "account_type"
     t.boolean "is_open"
-    t.money "lien", scale: 2
-    t.money "interest", scale: 2
+    t.integer "lien_cents", default: 0, null: false
+    t.string "lien_currency", default: "NGN", null: false
+    t.integer "interest_cents", default: 0, null: false
+    t.string "interest_currency", default: "NGN", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_name"], name: "index_customer_accounts_on_account_name"
@@ -47,7 +50,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_192713) do
     t.bigint "branch_id", null: false
     t.integer "code"
     t.boolean "is_assigned"
-    t.money "balance", scale: 2
+    t.integer "balance_cents", default: 0, null: false
+    t.string "balance_currency", default: "NGN", null: false
     t.boolean "is_till_account"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,7 +73,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_192713) do
   create_table "gl_posts", force: :cascade do |t|
     t.bigint "gl_account_to_credit_id", null: false
     t.bigint "gl_account_to_debit_id", null: false
-    t.money "amount", scale: 2
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "NGN", null: false
     t.text "narration"
     t.bigint "user_id", null: false
     t.datetime "posted_at"
