@@ -141,6 +141,7 @@ Style/FrozenStringLiteralComment:
 # Configuration parameters: IgnoreMacros, IgnoredMethods, IgnoredPatterns, IncludedMacros, AllowParenthesesInMultilineCall, AllowParenthesesInChaining, AllowParenthesesInCamelCaseMethod, EnforcedStyle.
 # SupportedStyles: require_parentheses, omit_parentheses
 Style/MethodCallWithArgsParentheses:
+  Enabled: false
   Exclude:
     - 'Gemfile'
     - 'graphql-batch.gemspec'
