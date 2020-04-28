@@ -47,6 +47,7 @@ group :development do
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'bullet'
+  gem 'brakeman', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -77,3 +78,4 @@ gem 'phonelib'
 gem 'rails_admin', '~> 2.0'
 gem 'rails_admin_softwarebrothers_theme', github: 'softwarebrothers/rails_admin_softwarebrothers_theme'
 gem 'rubocop-rails', require: false
+gem 'bundler-audit', require: false

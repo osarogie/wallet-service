@@ -1,15 +1,15 @@
-RailsAdmin.config do |config|
-  require 'money-rails/rails_admin'
-
-  def assign_display_name_method(*models)
-    models.each do |model|
-      config.model model do
-        object_label_method do
-          :display_name
-        end
+def assign_display_name_method(config, *models)
+  models.each do |model|
+    config.model model do
+      object_label_method do
+        :display_name
       end
     end
   end
+end
+
+RailsAdmin.config do |config|
+  require 'money-rails/rails_admin'
 
   app_name = ENV.fetch("APP_NAME") { "Wallet Service" }
   config.main_app_name = [app_name, "BackOffice"]
@@ -53,5 +53,5 @@ RailsAdmin.config do |config|
 
   config.parent_controller = 'AdminController'
   
-  assign_display_name_method 'User', 'CustomeAccount'
+  assign_display_name_method(config, 'User', 'CustomeAccount')
 end
