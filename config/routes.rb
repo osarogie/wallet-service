@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: "home#index"
+  root "home#index"
   devise_for :users
   
   post "/graphql", to: "graphql#execute"
