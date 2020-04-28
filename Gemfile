@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'debase'
+  gem 'ruby-debug-ide'
 end
 
 group :development do
@@ -71,3 +73,6 @@ gem 'cancancan'
 
 gem 'omniauth'
 gem 'phonelib'
+
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin_softwarebrothers_theme', :git => 'git@github.com:softwarebrothers/rails_admin_softwarebrothers_theme.git'
