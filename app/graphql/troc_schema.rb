@@ -1,4 +1,4 @@
-class WalletServiceSchema < GraphQL::Schema
+class TrocSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
 

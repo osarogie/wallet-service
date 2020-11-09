@@ -79,3 +79,5 @@ gem 'rails_admin', '~> 2.0'
 gem 'rails_admin_softwarebrothers_theme', github: 'softwarebrothers/rails_admin_softwarebrothers_theme'
 gem 'rubocop-rails', require: false
 gem 'bundler-audit', require: false
+gem "rolify", "~> 5.3"
+gem "view_component", require: "view_component/engine"
